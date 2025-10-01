@@ -1,0 +1,132 @@
+
+/* Fondo general */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background: #0d0d0d url("imagenfondo2.png") no-repeat center 10% fixed;
+  background-size: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  position: relative;
+  overflow: hidden;
+}
+
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  /* Oscurecer arriba y abajo */
+  background: linear-gradient(to bottom,
+    rgba(0,0,0,0.8) 0%,   /* arriba muy oscuro */
+    rgba(0,0,0,0) 30%,   /* centro transparente */
+    rgba(0,0,0,0) 70%,   /* centro transparente */
+    rgba(0,0,0,0.8) 100% /* abajo muy oscuro */
+  );
+
+  pointer-events: none; /* No bloquea clics */
+}
+/* Contenedor principal: logo + formulario */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centra horizontalmente */
+  gap: 250px; /* Espacio entre logo y login */
+}
+
+/* Logo */
+.logo img {
+  width: 350px;   /* tamaño grande */
+  height: auto;   /* mantiene proporciones */
+  display: block;
+}
+
+/* Caja del login */
+.login-container {
+  background-image: url("./palmeraazul.htm");;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  color: #fff;
+  width: 320px;
+  box-shadow: 0 0 20px rgba(180, 100, 255, 0.7);
+}
+
+/* Título */
+h2 {
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* Inputs */
+input {
+  width: 90%;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+}
+
+/* Botón */
+.btn {
+  width: 95%;
+  padding: 12px;
+  background: #5a2d82;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background: #7a3db0;
+}
+
+/* Links */
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Íconos sociales */
+.social-icons {
+  margin-top: 15px;
+}
+
+.social-icons a {
+  margin: 0 10px;
+  display: inline-block;
+}
+
+.social-icons {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.social-icons a img {
+  width: 40px;   /* tamaño fijo */
+  height: 40px;  /* tamaño fijo */
+  margin: 0 10px;
+  border-radius: 8px; /* opcional: bordes redondeados */
+  transition: transform 0.3s ease;
+}
+
+.social-icons a img:hover {
+  transform: scale(1.2); /* efecto al pasar el mouse */
+}

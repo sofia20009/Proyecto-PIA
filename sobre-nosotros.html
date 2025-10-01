@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre Nosotros - Mente Conectada</title>
+  <link rel="stylesheet" href="sobre_nosotros.css">
+</head>
+<body>
+  <div class="container">
+
+    <!-- Menú lateral -->
+    <aside class="sidebar closed" id="sidebar">
+      <div class="logo">
+        <img src="./img/logo2.png" alt="Logo Mente Conectada">
+      </div>
+      <h3 class="toggle" onclick="toggleMenu()">▼ Opciones</h3>
+      <ul>
+        <li><a href="#">Citas</a></li>
+        <li><a href="#">Chat</a></li>
+        <li><a href="#">Textos</a></li>
+        <li><a href="#">Videos</a></li>
+      </ul>
+    </aside>
+
+    <!-- Contenido -->
+    <main class="content">
+      <header class="top-bar">
+        <input type="text" placeholder="Buscar...">
+        <button>🔍</button>
+        <img src="perfil.png" alt="Perfil" class="avatar">
+      </header>
+
+      <section class="about">
+        <h1>Sobre Nosotros</h1>
+        <p>
+          Nosotros somos un grupo de trabajo el cual busca ayudar a las personas, 
+          y a su salud mental, pero principalmente nos enfocamos en los estudiantes jóvenes.
+        </p>
+      </section>
+
+      <footer class="footer-logo">
+        <img src="./img/logo.png" alt="Mente Conectada">
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const sidebar = document.getElementById("sidebar");
+      sidebar.classList.toggle("closed");
+    }
+  </script>
+</body>
+</html>
