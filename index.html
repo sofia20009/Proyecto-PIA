@@ -1,104 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Mente Conectada</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #111;
-      color: white;
-      text-align: center;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background: #4b0082;
-      padding: 15px;
-      position: relative;
-    }
-    h1 {
-      font-size: 20px;
-      margin: 20px 0;
-    }
-    /* Botón Volver */
-    .volver-global {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      background: #ff4500;
-      border: none;
-      color: white;
-      padding: 10px 15px;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 14px;
-      text-decoration: none;
-      transition: background 0.3s ease;
-    }
-    .volver-global:hover {
-      background: #ff6347;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr); /* 2 columnas */
-      gap: 15px;
-      max-width: 800px;
-      margin: auto;
-    }
-    .opcion {
-      background: #222;
-      border-radius: 15px;
-      padding: 10px;
-      transition: all 0.3s ease;
-    }
-    .opcion button {
-      background: #800080;
-      color: white;
-      padding: 15px;
-      border: none;
-      border-radius: 15px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: 0.3s;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .opcion button:hover {
-      background: #a020f0;
-    }
-    .contenido {
-      max-height: 0;
-      overflow: hidden;
-      background: #333;
-      padding: 0 15px;
-      border-radius: 10px;
-      transition: max-height 0.6s ease, padding 0.3s ease;
-      margin-top: 10px;
-      text-align: left;
-    }
-    .contenido.activo {
-      padding: 15px;
-      max-height: 400px;
-    }
-  </style>
+  <!-- Apunta al CSS principal (style.css) -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
-    <!-- Botón global de volver -->
-    <a href="" class="volver-global">⬅ Volver al menú</a>
-    <h2>Textos</h2>
-    <input type="text" placeholder="Buscar..." style="padding:5px; border-radius:8px; width:200px;">
+    <h1>Mente
+       Conectada</h1>
   </header>
-    
- 
- <iframe width="500" height="300" src="https://www.youtube.com/embed/iASX6cu4GaQ?si=kOw65CXAllH-lV0J" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
- <iframe width="500" height="300" src="https://www.youtube.com/embed/wfOHdfqqJTs?si=8CUi37WSTSb9lypi" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <main id="inicio">
+    <section>
+      <h2>Bienvenido</h2>
+      <p>Ejemplo para aprender HTML, CSS y JavaScript.</p>
 
- <iframe width="500" height="300" src="https://www.youtube.com/embed/t_1Nw7WIV0g?si=jMLxn9LQW3kRTXNz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-  
- 
+      <figure>
+        <img src="descarga.jpg" alt="descarga" style="max-width:320px">
+        <figcaption>Descripción de la imagen.</figcaption>
+      </figure>
+
+      <p>
+        <a class="btn" href="iniciosesion.html">Ir a Iniciar Sesión</a>
+        &nbsp;
+        <a class="btn" href="sobre-nosotros.html">Sobre Nosotros</a>
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Mente Conectada</p>
+  </footer>
+    <footer class="footer-logo img">
+                <img src="logo.png" alt="Mente Conectada">
+            </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

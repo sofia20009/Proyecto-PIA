@@ -1,55 +1,119 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sobre Nosotros - Mente Conectada</title>
-  <link rel="stylesheet" href="sobre_nosotros.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sobre Nosotros - Mente Conectada</title>
+    <link rel="stylesheet" href="sobre_nosotros.css" /> 
 </head>
 <body>
-  <div class="container">
+    <script>
+        // Si no existe la bandera de login, redirige al login
+        if (localStorage.getItem('isLoggedIn') !== 'true') {
+            alert('Debes iniciar sesión para acceder a este contenido.');
+            window.location.href = 'iniciosesion.html';
+        }
+    </script>
+    
+    <div class="container">
+        
+        <aside class="sidebar" id="sidebar">
+            <div class="logo">
+                <img src="logo2.png" alt="Logo Mente Conectada">
+            </div>
 
-    <!-- Menú lateral -->
-    <aside class="sidebar closed" id="sidebar">
-      <div class="logo">
-        <img src="./img/logo2.png" alt="Logo Mente Conectada">
-      </div>
-      <h3 class="toggle" onclick="toggleMenu()">▼ Opciones</h3>
-      <ul>
-        <li><a href="#">Citas</a></li>
-        <li><a href="#">Chat</a></li>
-        <li><a href="#">Textos</a></li>
-        <li><a href="#">Videos</a></li>
-      </ul>
-    </aside>
+            <h3 class="toggle" id="menuToggle" onclick="toggleMenu()">
+                <span id="toggleIcon">▼</span>
+                <span id="toggleText">Opciones</span>
+            </h3>
+            
+            <ul>
+                <li><a href="#">Citas</a></li>
+                <li><a href="#">Chat</a></li>
+                <li><a href="textos.html">Textos</a></li>
+                <li><a href="#">Videos</a></li>
+            </ul>
+        </aside>
 
-    <!-- Contenido -->
-    <main class="content">
-      <header class="top-bar">
-        <input type="text" placeholder="Buscar...">
-        <button>🔍</button>
-        <img src="perfil.png" alt="Perfil" class="avatar">
-      </header>
+        <main class="content">
+            <header class="top-bar">
+                <div class="nav-links">
+                    <a href="index.html">← Inicio</a>
+                    <a href="iniciosesion.html">Iniciar Sesión</a>
+                </div>
+                
+                <div class="search-container">
+                    <input type="text" placeholder="Buscar...">
+                    <button>🔍</button> 
+                </div>
+                
+                <div class="avatar" id="userAvatar">
+                    <img class="avatar-img" style="display:none;">
+                </div>
+            </header>
 
-      <section class="about">
-        <h1>Sobre Nosotros</h1>
-        <p>
-          Nosotros somos un grupo de trabajo el cual busca ayudar a las personas, 
-          y a su salud mental, pero principalmente nos enfocamos en los estudiantes jóvenes.
-        </p>
-      </section>
+            <section class="about">
+                <h1>Sobre Nosotros</h1>
+                <p>
+                    Nosotros somos un grupo de trabajo que busca ayudar a las personas y a su salud mental,
+                    principalmente enfocados en estudiantes jóvenes.
+                </p>
+            </section>
 
-      <footer class="footer-logo">
-        <img src="./img/logo.png" alt="Mente Conectada">
-      </footer>
-    </main>
-  </div>
+            <footer class="footer-logo img">
+                <img src="logo.png" alt="Mente Conectada">
+            </footer>
+        </main>
+    </div>
 
-  <script>
-    function toggleMenu() {
-      const sidebar = document.getElementById("sidebar");
-      sidebar.classList.toggle("closed");
-    }
-  </script>
+    <script>
+        // Lógica del menú desplegable (existente)
+        function toggleMenu() {
+            const sidebar = document.getElementById("sidebar");
+            const toggleText = document.getElementById("toggleText");
+            const toggleIcon = document.getElementById("toggleIcon");
+
+            sidebar.classList.toggle("closed");
+
+            if (sidebar.classList.contains("closed")) {
+                toggleText.style.display = 'none';
+                toggleIcon.textContent = '▶'; 
+            } else {
+                toggleText.style.display = 'inline';
+                toggleIcon.textContent = '▼';
+            }
+        }
+        
+        // ======================================
+        // NUEVA LÓGICA: MOSTRAR INICIAL DEL USUARIO
+        // ======================================
+        document.addEventListener('DOMContentLoaded', () => {
+            const avatarDiv = document.getElementById('userAvatar');
+            const nombreCompleto = localStorage.getItem('nombreUsuario');
+            
+            // Si hay un nombre guardado, lo usamos. Si no, mostramos un valor por defecto.
+            if (nombreCompleto) {
+                // Obtener solo la primera letra y ponerla en mayúsculas
+                const inicial = nombreCompleto.charAt(0).toUpperCase();
+                
+                // Reemplazar el contenido del div 'avatar' con la inicial
+                // El CSS que tienes debe darle el estilo circular y el color de fondo.
+                avatarDiv.innerHTML = inicial; 
+                
+            } else {
+                // Caso alternativo (por ejemplo, si usa la cuenta temporal)
+                // Usamos la inicial "I" de Invitado o volvemos a mostrar la imagen
+                avatarDiv.innerHTML = 'I'; 
+                
+                // Si tienes un caso en el que la cuenta temporal no tiene nombre, 
+                // pero quieres un nombre por defecto, puedes modificar esta línea.
+                
+                // Nota: Asegúrate de que tu CSS para .avatar centre el texto y le dé el fondo.
+                
+                // Si quieres mostrar la imagen por defecto:
+                // avatarDiv.querySelector('.avatar-img').style.display = 'block';
+            }
+        });
+    </script>
 </body>
 </html>

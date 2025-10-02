@@ -1,124 +1,299 @@
 /* Estilos generales */
 body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background: #000;
-  color: white;
-  display: flex;
-  height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #000; /* Fondo negro consistente */
+    color: white;
+    display: flex;
+    min-height: 100vh;
 }
 
 .container {
-  display: flex;
-  width: 100%;
+    display: flex;
+    width: 100%;
 }
 
-/* Menú lateral */
+/* ------------------------------------- */
+/* --- Menú lateral (Sidebar) & Toggle --- */
+/* ------------------------------------- */
+
 .sidebar {
-  width: 220px;
-  background: linear-gradient(to bottom, #6a0dad, #3c1053);
-  padding: 20px;
+    width: 280px;
+    background: #5e108b; /* Morado Oscuro principal */
+    padding: 20px 0;
+    box-sizing: border-box;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    /* Transición para el efecto de cerrar/abrir */
+    transition: width 0.3s ease; 
+    flex-shrink: 0; /* Evita que el sidebar se encoja */
 }
 
-.sidebar .logo img {
-  width: 80px;
-  margin-bottom: 20px;
+/* ESTILO CUANDO EL MENÚ ESTÁ CERRADO */
+.sidebar.closed {
+    width: 80px; /* Ancho reducido al cerrar */
 }
 
-.sidebar h3 {
-  font-size: 18px;
-  margin-bottom: 15px;
-  color: #fff;
-  border-bottom: 2px solid #fff;
-  padding-bottom: 5px;
+.sidebar.closed .logo img {
+    margin: auto;
+}
+
+/* Ocultar elementos cuando está cerrado */
+.sidebar.closed .logo span, 
+.sidebar.closed ul {
+    display: none;
+}
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    padding: 0 20px 20px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+    /* Necesario para la transición cuando el menú se cierra */
+    transition: padding 0.3s ease; 
+}
+
+.logo {
+    width: 30px; 
+    height: 30px;
+    margin-right: 10px;
+    transition: margin 0.3s ease;
+}
+
+.logo span {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #fff;
+}
+
+.toggle {
+    /* Estilo para el botón/encabezado 'Opciones' */
+    font-size: 1.4em;
+    margin: 0 20px 10px;
+    color: #fff;
+    cursor: pointer; /* Indica que es clickeable */
+    padding: 5px 0;
+    user-select: none; /* Evita selección de texto al hacer clic */
+    display: block; /* Asegura que ocupe todo el ancho */
 }
 
 .sidebar ul {
-  list-style: none;
-  padding: 0;
+    /* El menú de opciones que se despliega */
+    list-style: none;
+    padding: 0 20px;
+    /* Transición para ocultar/mostrar si usas altura, pero usaremos display none con JS */
 }
 
 .sidebar ul li {
-  margin: 15px 0;
+    margin: 10px 0;
 }
 
 .sidebar ul li a {
-  text-decoration: none;
-  color: #fff;
-  background: rgba(255,255,255,0.2);
-  padding: 10px;
-  border-radius: 10px;
-  display: block;
-  transition: 0.3s;
+    text-decoration: none;
+    color: #fff;
+    background: #b757ee; /* Morado claro de los botones */
+    padding: 12px 15px;
+    border-radius: 5px; 
+    display: block;
+    transition: background-color 0.3s;
+    font-weight: 500;
 }
 
 .sidebar ul li a:hover {
-  background: rgba(255,255,255,0.4);
+    background: #673AB7;
 }
 
-/* Contenido principal */
+/* ------------------------------------- */
+/* --- Contenido principal (Main) --- */
+/* ------------------------------------- */
+
 .content {
-  flex: 1;
-  padding: 20px 40px;
-  position: relative;
+    flex: 1;
+    padding: 0 40px;
+    position: relative;
+    /* Permite que el contenido se ajuste si el sidebar se encoge */
+    transition: margin-left 0.3s ease; 
 }
 
-/* Barra superior */
+/* ------------------------------------- */
+/* --- Barra superior (Header) --- */
+/* ------------------------------------- */
+
 .top-bar {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  gap: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+    margin-bottom: 40px;
 }
+
+.top-bar a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.top-bar a:hover {
+    color: #540c85;
+}
+
 
 .top-bar input {
-  padding: 8px;
-  border-radius: 20px;
-  border: none;
-  outline: none;
+    padding: 8px 10px;
+    border: none;
+    outline: none;
+    background: #1a1a1a; /* Fondo de la caja de búsqueda */
+    color: white;
+    width: 150px;
+    border-radius: 20px 0 0 20px; /* Bordes redondeados solo a la izquierda */
 }
 
 .top-bar button {
-  padding: 8px 12px;
-  border: none;
-  border-radius: 10px;
-  background: #6a0dad;
-  color: white;
-  cursor: pointer;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 0 20px 20px 0; /* Bordes redondeados solo a la derecha */
+    background: #4A148C; 
+    color: white;
+    cursor: pointer;
+    margin-left: -4px; /* Para que se pegue al input */
 }
 
 .avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #6A0DAD; 
+    margin-left: 15px;
 }
 
-/* Sección sobre nosotros */
+/* ------------------------------------- */
+/* --- Sección sobre nosotros (About) --- */
+/* ------------------------------------- */
+
 .about {
-  margin-top: 40px;
-  text-align: center;
+    margin-top: 40px;
+    text-align: center;
+    padding-top: 20px;
 }
 
 .about h1 {
-  font-size: 32px;
-  margin-bottom: 15px;
+    font-size: 2.5em; 
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #fff;
 }
 
 .about p {
-  font-size: 18px;
-  line-height: 1.6;
-  max-width: 600px;
-  margin: auto;
+    font-size: 1.1em;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: auto;
+    font-weight: 300;
 }
 
-/* Logo inferior */
+/* ------------------------------------- */
+/* --- Logo inferior (Footer Logo) --- */
+/* ------------------------------------- */
+
 .footer-logo {
-  position: absolute;
-  right: 20px;
-  bottom: 20px;
+    position: absolute;
+    right: 40px;
+    bottom: 40px;
 }
 
 .footer-logo img {
-  width: 100px;
-  opacity: 0.8;
+    width: 200px;
+    opacity: 1; 
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.1));
+}
+/* ... (Tu código CSS anterior) ... */
+
+/* ------------------------------------- */
+/* --- Menú lateral (Sidebar) & Toggle --- */
+/* ------------------------------------- */
+
+.sidebar {
+    /* ... (Estilos previos) ... */
+    width: 280px; 
+    transition: width 0.3s ease; 
+    flex-shrink: 0; 
+}
+
+/* ESTILO CUANDO EL MENÚ ESTÁ CERRADO */
+.sidebar.closed {
+    width: 80px; 
+}
+
+/* Ocultar elementos cuando está cerrado */
+/* Aquí solo necesitamos ocultar el texto del logo y los enlaces de las opciones */
+.sidebar.closed .logo span, 
+.sidebar.closed ul {
+    display: none;
+}
+
+/* Ajuste para el ícono 'toggle' cuando el menú está cerrado */
+.sidebar.closed .toggle {
+    text-align: center; /* Centra el ícono */
+    margin: 10px auto; /* Centra el elemento 'h3' horizontalmente */
+    font-size: 1.8em; /* Hacemos el ícono un poco más grande para que se vea bien */
+}
+
+/* Resto del estilo de 'toggle' (abierto) */
+.toggle {
+    font-size: 1.4em;
+    margin: 0 20px 10px;
+    color: #fff;
+    cursor: pointer; 
+    padding: 5px 0;
+    user-select: none;
+    display: flex; /* Usamos flex para alinear el ícono y el texto */
+    align-items: center;
+    gap: 10px;
+}
+/* ------------------------------------- */
+/* --- Estilos para el Avatar de la Inicial --- */
+/* ------------------------------------- */
+
+.avatar {
+    /* 1. Dimensiones y Forma Circular */
+    width: 40px; 
+    height: 40px;
+    border-radius: 50%; 
+    
+    /* 2. Color de Fondo Morado (Ajusta este color si tienes un tono exacto) */
+    background-color: #4A148C; /* Morado Oscuro */
+    
+    /* 3. Centrar la Inicial Vertical y Horizontalmente */
+    display: flex;
+    align-items: center; /* Centrado vertical */
+    justify-content: center; /* Centrado horizontal */
+    
+    /* 4. Estilo de la Inicial */
+    color: white; 
+    font-size: 1.5em; /* Tamaño de la letra de la inicial */
+    font-weight: 900; /* Asegura que la letra se vea gruesa */
+    
+    /* 5. Tipo de Letra Personalizado (Impacto o similar) */
+    font-family: 'Impact', 'Arial Black', sans-serif;
+    letter-spacing: 0.05em; /* Un pequeño espaciado para que se vea mejor */
+    padding-bottom: 2px; /* Pequeño ajuste visual */
+}
+
+/* Es importante asegurar que la imagen de perfil que estaba antes no se muestre */
+.avatar img.avatar-img {
+    display: none; 
+}
+
+/* También asegúrate de que el div que contiene la búsqueda y el avatar esté bien alineado */
+.top-bar .avatar {
+    margin-left: 15px;
+    flex-shrink: 0; /* Evita que se encoja si hay poco espacio */
+}
+.avatar {
+    /* ... otros estilos ... */
+    font-family: 'Oswald', sans-serif;
 }

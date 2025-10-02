@@ -1,26 +1,195 @@
 <!DOCTYPE html>
 <html lang="es">
- <head>
-     <title>texto</title>
-      <link rel="stylesheet" href="style2.css">
- </head>
- <body>
- <h1>texto</h1>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mente Conectada</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: white;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #4b0082;
+      padding: 15px;
+      position: relative;
+    }
+    h1 {
+      font-size: 20px;
+      margin: 20px 0;
+    }
+    /* Botón menu diseño */
+    .volver-global {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: #aa00ff;
+      border: none;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+    .volver-global:hover {
+      background: #ff47bf;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      max-width: 800px;
+      margin: auto;
+    }
+    .opcion {
+      background: #222;
+      border-radius: 15px;
+      padding: 10px;
+      transition: all 0.3s ease;
+    }
+    .opcion button {
+      background: #800080;
+      color: white;
+      padding: 15px;
+      border: none;
+      border-radius: 15px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .opcion button:hover {
+      background: #a020f0;
+    }
+    .contenido {
+      max-height: 0;
+      overflow: hidden;
+      background: #333;
+      padding: 0 15px;
+      border-radius: 10px;
+      transition: max-height 0.6s ease, padding 0.3s ease;
+      margin-top: 10px;
+      text-align: left;
+    }
+    .contenido.activo {
+      padding: 15px;
+      max-height: 400px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+  
+    
+    <a href="sobre-nosotros.html" class="volver-global">⬅ Volver al menú</a>
+    <h2>Textos</h2>
+    <input type="text" placeholder="Buscar..." style="padding:5px; border-radius:8px; width:200px;">
+  </header>
 
- <h2>¿de que te gustaria infromarte?</h2>
- <h3>ANSIEDAD</h3>
+  <h1>¿De qué te gustaría informarte?</h1>
 
- <h3>DEPRESION</h3>
+  <!-- Opciones -->
+  <div class="grid">
+    <div class="opcion">
+      <button onclick="mostrar('ansiedad', this)">
+        Ansiedad <span class="flecha">▶</span>
+      </button>
+      <div id="ansiedad" class="contenido">
+        <h3>Ansiedad</h3>
+        <h4> La ansiedad es una respuesta natural del cuerpo ante situaciones de tensión o peligro, pero cuando se vuelve constante e intensa puede interferir en la vida diaria. Se manifiesta con preocupación excesiva, nerviosismo, dificultad para concentrarse y síntomas físicos como palpitaciones o sudoración, siendo importante aprender a manejarla y buscar apoyo cuando sea necesario.
+        </p>
+      </div>
+    </div>
 
- <h3>PROBLEMAS ALIMENARIOS</h3>
+    <div class="opcion">
+      <button onclick="mostrar('depresion', this)">
+        Depresión <span class="flecha">▶</span>
+      </button>
+      <div id="depresion" class="contenido">
+        <h3>Depresión</h3>
+        <h4>La depresión es un trastorno del estado de ánimo que provoca una profunda tristeza, pérdida de interés en actividades cotidianas y falta de energía. No es simplemente “estar triste”, sino una condición que afecta los pensamientos, emociones y la vida diaria de quien la padece, y que requiere comprensión, apoyo y, en muchos casos, tratamiento profesional.</h4>
+      </div>
+    </div>
 
- <h3>ESTRES POST TRAUMATICO</h3>
- 
- <h3>BIPOLARIDAD</h3>
- 
- <h3>ESQUIZOFRENIA</h3>
- 
- <h3>OTROS..</h3> .
+    <div class="opcion">
+      <button onclick="mostrar('bipolaridad', this)">
+        Bipolaridad <span class="flecha">▶</span>
+      </button>
+      <div id="bipolaridad" class="contenido">
+        <h3>Bipolaridad</h3>
+        <p> <h4>La ansiedad es una sensación de inquietud y preocupación que, aunque puede ser una respuesta normal frente a situaciones de estrés, cuando se presenta de manera constante e intensa interfiere en la vida diaria, generando síntomas emocionales y físicos que afectan el bienestar y la calidad de vida.</h4></p>
+      </div>
+    </div>
 
- </body>
+    <div class="opcion">
+      <button onclick="mostrar('alimenticios', this)">
+        Problemas Alimenticios <span class="flecha">▶</span>
+      </button>
+      <div id="alimenticios" class="contenido">
+        <h3>Problemas Alimenticios</h3>
+        <p><h4>Los problemas alimenticios son trastornos que afectan la manera en que una persona se relaciona con la comida, el peso y su propia imagen corporal. Entre los más comunes están la anorexia, la bulimia y el trastorno por atracón, los cuales pueden tener graves consecuencias físicas y emocionales, por lo que es fundamental detectarlos a tiempo y buscar ayuda profesional.
+</h4></p>
+      </div>
+    </div>
+
+    <div class="opcion">
+      <button onclick="mostrar('estres', this)">
+        Estrés Postraumático <span class="flecha">▶</span>
+      </button>
+      <div id="estres" class="contenido">
+        <h3>Estrés Postraumático</h3>
+        <p><h4>El estrés postraumático es un trastorno que aparece después de vivir o presenciar una experiencia muy impactante o peligrosa. Quienes lo padecen suelen revivir constantemente el evento, tener pesadillas, ansiedad intensa y evitar todo lo que les recuerde lo sucedido, lo que afecta su vida diaria y emocional. Es importante reconocerlo y buscar apoyo profesional para afrontarlo.
+</h4></p>
+      </div>
+    </div>
+
+    <div class="opcion">
+      <button onclick="mostrar('esquizofrenia', this)">
+        Esquizofrenia <span class="flecha">▶</span>
+      </button>
+      <div id="esquizofrenia" class="contenido">
+        <h3>Esquizofrenia</h3>
+        <p><h4>La esquizofrenia es un trastorno mental grave que afecta la forma en que una persona piensa, siente y percibe la realidad. Se caracteriza por la presencia de alucinaciones, delirios, pensamientos desorganizados y dificultades para relacionarse socialmente. Aunque no tiene cura, con tratamiento adecuado y apoyo constante es posible mejorar la calidad de vida de quienes la padecen.
+</h4></p>
+      </div>
+    </div>
+
+    <div class="opcion">
+      <button onclick="mostrar('otros', this)">
+        Otros... <span class="flecha">▶</span>
+      </button>
+      <div id="otros" class="contenido">
+        <h3>Otros...</h3>
+        <p><h4>Existen otros trastornos mentales que también afectan el bienestar y la vida cotidiana, como el trastorno bipolar, el trastorno obsesivo-compulsivo (TOC), los trastornos de personalidad y las fobias. Cada uno se manifiesta de manera distinta, pero todos requieren atención, comprensión y, en muchos casos, acompañamiento profesional para lograr un adecuado manejo y una mejor calidad de vida.
+</h4></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function mostrar(id, boton) {
+      let seleccionado = document.getElementById(id);
+      let flecha = boton.querySelector(".flecha");
+      let activo = seleccionado.classList.contains("activo");
+
+    
+      document.querySelectorAll('.contenido').forEach(div => div.classList.remove("activo"));
+      document.querySelectorAll('.flecha').forEach(f => f.textContent = "▶");
+
+      if (!activo) {
+        seleccionado.classList.add("activo");
+        flecha.textContent = "▼";
+      }
+    }
+  </script>
+</body>
 </html>

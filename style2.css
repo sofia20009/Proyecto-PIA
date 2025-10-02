@@ -1,77 +1,184 @@
-style.css
+/*
+ * MODIFICACIONES CLAVE:
+ * - Fondo general oscuro (negro/morado oscuro).
+ * - Colores primarios: Morado oscuro (#4a148c), Morado medio (#7e57c2), Morado claro para botones/fondos destacados.
+ * - Texto principal en blanco.
+ * - Diseño de dos columnas con un menú vertical destacado.
+ */
+
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f5f5f5;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+    /* Fondo principal: Negro o morado muy oscuro para el contraste general */
+    background-color: #1a0033; /* Morado muy oscuro, casi negro */
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* Ajuste para que el cuerpo ocupe al menos la altura visible */
+    min-height: 100vh;
 }
 
 .left-section {
-  width: 40%;
-  background-image: url('téléchargement.jpg');
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    width: 40%;
+    /* La imagen de fondo debe ser la de las dos personas abrazándose */
+    /* Asegúrate de que 'téléchargement.jpg' sea esa imagen */
+    background-image: url('téléchargement.jpg');
+    background-size: cover;
+    background-position: center;
+    /* Eliminar el flex center para que la imagen ocupe el espacio */
+    display: block;
+    position: relative;
+    /* Añadir un degradado oscuro sobre la imagen para que el menú resalte si es necesario */
+    /* Este degradado imita un poco la oscuridad en la izquierda de la imagen original */
 }
 
+.right-section {
+    width: 60%;
+    /* Fondo oscuro para la sección principal de contenido */
+    background-color: #000000; /* Fondo negro */
+    padding: 40px;
+    color: #ffffff; /* Texto principal en blanco */
+    box-sizing: border-box; /* Asegura que el padding no cambie el ancho total */
+    position: relative;
+}
+
+/* --- Estilos del Menú (Opciones) --- */
+
 .menu {
-  display: flex;
-  flex-direction: column;
-  padding: 20px;
-  background-color: #ffffff;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    /* Posicionar el menú en la parte superior/izquierda de la sección derecha o sobre la izquierda,
+       pero para este diseño, lo colocaremos de forma flotante o dentro de un contenedor específico.
+       En el diseño original parece estar sobre la sección izquierda o en una barra de navegación superior.
+       Lo simularé como un menú destacado en la parte superior de la sección derecha (o una barra).
+    */
+    position: absolute; /* Posición absoluta dentro de la sección izquierda para flotar sobre la imagen */
+    top: 50px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    /* El fondo del menú de opciones parece ser un morado más claro y con transparencia/sombra */
+    background-color: rgba(74, 20, 140, 0.8); /* Morado principal con transparencia */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    z-index: 10;
+    width: 200px; /* Ancho para simular el panel */
 }
 
 .menu h2 {
-  margin-bottom: 20px;
-  color: #4a148c;
+    /* Estilo del encabezado 'Opciones' */
+    margin-bottom: 15px;
+    color: #ffffff; /* Texto blanco */
+    text-align: center;
+    padding: 5px 0;
+    /* Fondo y forma del encabezado 'Opciones' */
+    background: linear-gradient(to right, #7e57c2, #4a148c);
+    border-radius: 5px;
+    font-size: 1.5em;
+    font-weight: bold;
 }
 
 .menu a {
-  text-decoration: none;
-  color: white;
-  background-color: #7e57c2;
-  padding: 10px;
-  margin: 5px 0;
-  border-radius: 5px;
-  transition: background-color 0.3s ease;
+    text-decoration: none;
+    color: #ffffff; /* Texto de los botones en blanco */
+    /* Estilo de los botones del menú, fondo morado claro */
+    background-color: #7e57c2;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border-radius: 50px; /* Bordes muy redondeados para simular los óvalos */
+    transition: background-color 0.3s ease, transform 0.2s;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: 600;
+    /* Borde sutil para simular el contorno claro de los botones */
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .menu a:hover {
-  background-color: #5e35b1;
+    background-color: #5e35b1;
+    transform: translateY(-2px);
 }
 
-
-.right-section {
-  width: 60%;
-  padding: 40px;
-  color: #ffffff;
-}
+/* --- Estilos de la Sección Derecha (Contenido) --- */
 
 .right-section h1 {
-  color: #4a148c;
-  margin-bottom: 20px;
+    /* Estilo del encabezado "Sobre Nosotros" */
+    color: #ffffff; /* Texto blanco */
+    margin-bottom: 30px;
+    font-size: 3em;
+    font-weight: 800;
+    /* Usar un color secundario para destacar o un sutil sombreado */
+    text-shadow: 2px 2px 4px rgba(74, 20, 140, 0.5);
+    /* El encabezado en la imagen es GRANDE y CENTRADO (o alineado con el texto) */
+    text-align: left;
 }
 
 .right-section p {
-  font-size: 1.1em;
-  line-height: 1.6;
-  color: #333333;
+    font-size: 1.3em; /* Texto más grande para el cuerpo */
+    line-height: 1.8;
+    color: #ffffff; /* Texto principal en blanco */
+    font-weight: 300;
 }
 
+/* --- Estilo del Logo de Confianza (Mente Conectada) --- */
+
 .logo {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  width: 100px;
-  height: 100px;
-  background-image: url('LOGO\ PROYECTO.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+    position: absolute;
+    bottom: 40px; /* Un poco más arriba */
+    right: 40px; /* Un poco más a la izquierda */
+    width: 150px; /* Logo más grande */
+    height: 150px;
+    /* Asegúrate de que 'LOGO PROYECTO.png' sea el logo de "Mente Conectada" */
+    background-image: url('LOGO\ PROYECTO.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    /* Añadir un sutil brillo o sombra al logo */
+    filter: drop-shadow(0 0 5px #7e57c2);
+}
+
+/* --- Estilos Adicionales (Simulación de la Barra Superior) --- */
+
+/* La barra superior de la imagen (donde está la lupa y la persona) no está en tu HTML/CSS actual.
+   Si la quisieras simular, necesitarías un nuevo div en el HTML.
+
+   Ejemplo de cómo se vería el CSS para la barra de navegación:
+*/
+.top-bar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #1a0033; /* Mismo fondo oscuro */
+    z-index: 20;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.search-box {
+    /* Estilo de la caja de búsqueda */
+    width: 250px;
+    height: 40px;
+    background-color: #ffffff;
+    border-radius: 50px;
+    border: none;
+    padding: 0 15px;
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.user-avatar {
+    /* Estilo del avatar del usuario */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #7e57c2;
+    margin-left: 20px;
+    /* Puedes usar la imagen de la persona aquí */
 }

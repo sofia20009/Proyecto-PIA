@@ -51,6 +51,7 @@ body::after {
 /* Caja del login */
 .login-container {
   background-image: url("./palmeraazul.htm");;
+  backdrop-filter: blur(15px);
   padding: 30px;
   border-radius: 15px;
   text-align: center;
@@ -129,4 +130,40 @@ a:hover {
 
 .social-icons a img:hover {
   transform: scale(1.2); /* efecto al pasar el mouse */
+}
+.footer-logo {
+    position: absolute;
+    right: 40px;
+    bottom: 40px;
+}
+
+.footer-logo img {
+    width: 200px;
+    opacity: 1; 
+    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.1));
+}
+/* Inputs */
+input {
+  width: 90%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 2px solid rgba(255, 255, 255, 0.4); /* borde semitransparente */
+  border-radius: 50px; /* redondeados */
+  outline: none;
+  font-size: 14px;
+
+  /* Fondo transparente */
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+
+  /* Efecto de texto y sombra */
+  box-shadow: 0 0 10px rgba(180, 100, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+/* Efecto al hacer clic */
+input:focus {
+  border: 2px solid #b464ff;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 15px rgba(180, 100, 255, 0.8);
 }
