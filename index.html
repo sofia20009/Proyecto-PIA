@@ -1,43 +1,148 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mente Conectada</title>
-  <!-- Apunta al CSS principal (style.css) -->
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: white;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #4b0082;
+      padding: 15px;
+      position: relative;
+    }
+    h1 {
+      font-size: 20px;
+      margin: 20px 0;
+    }
+    /* Botón Volver */
+    .volver-global {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      background: #ff4500;
+      border: none;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 14px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+    .volver-global:hover {
+      background: #ff6347;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+      gap: 15px;
+      max-width: 800px;
+      margin: auto;
+    }
+    .opcion {
+      background: #222;
+      border-radius: 15px;
+      padding: 10px;
+      transition: all 0.3s ease;
+    }
+    .opcion button {
+      background: #800080;
+      color: white;
+      padding: 15px;
+      border: none;
+      border-radius: 15px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .opcion button:hover {
+      background: #a020f0;
+    }
+    .contenido {
+      max-height: 0;
+      overflow: hidden;
+      background: #333;
+      padding: 0 15px;
+      border-radius: 10px;
+      transition: max-height 0.6s ease, padding 0.3s ease;
+      margin-top: 10px;
+      text-align: left;
+    }
+    .contenido.activo {
+      padding: 15px;
+      max-height: 400px;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <h1>Mente
-       Conectada</h1>
+    <!-- Botón global de volver -->
+    <a href="" class="volver-global">⬅ Volver al menú</a>
+    <h2>Textos</h2>
+    <input type="text" placeholder="Buscar..." style="padding:5px; border-radius:8px; width:200px;">
   </header>
+    
+ <style>
+  .videos {
+    display: flex;
+    flex-direction: column; /* videos uno debajo del otro */
+    align-items: flex-start;
+    margin: 20px;
+    gap: 15px; /* espacio entre cada bloque */
+  }
 
-  <main id="inicio">
-    <section>
-      <h2>Bienvenido</h2>
-      <p>Ejemplo para aprender HTML, CSS y JavaScript.</p>
+  .video-item {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* espacio entre el video y el texto */
+  }
 
-      <figure>
-        <img src="descarga.jpg" alt="descarga" style="max-width:320px">
-        <figcaption>Descripción de la imagen.</figcaption>
-      </figure>
+  .video-item iframe {
+    border-radius: 10px;
+  }
 
-      <p>
-        <a class="btn" href="iniciosesion.html">Ir a Iniciar Sesión</a>
-        &nbsp;
-        <a class="btn" href="sobre-nosotros.html">Sobre Nosotros</a>
-      </p>
-    </section>
-  </main>
+  .video-text {
+    max-width: 300px;
+    font-size: 14px;
+    color: #ddd;
+  }
+</style>
 
-  <footer>
-    <p>&copy; 2025 Mente Conectada</p>
-  </footer>
-    <footer class="footer-logo img">
-                <img src="logo.png" alt="Mente Conectada">
-            </footer>
+<div class="videos">
+  <div class="video-item">
+    <iframe width="300" height="180" src="https://www.youtube.com/embed/iASX6cu4GaQ?si=kOw65CXAllH-lV0J" frameborder="0" allowfullscreen></iframe>
+    <div class="video-text">
+      <h1>¿Que es la psicologia?</h1>
+    </div>
+  </div>
 
-  <script src="script.js"></script>
-</body>
-</html>
+  <div class="video-item">
+    <iframe width="300" height="180" src="https://www.youtube.com/embed/wfOHdfqqJTs?si=8CUi37WSTSb9lypi" frameborder="0" allowfullscreen></iframe>
+    <div class="video-text">
+      <h1>¿Como cuidar tu salud mental?</h1>
+    </div>
+  </div>
+
+  <div class="video-item">
+    <iframe width="300" height="180" src="https://www.youtube.com/embed/t_1Nw7WIV0g?si=jMLxn9LQW3kRTXNz" frameborder="0" allowfullscreen></iframe>
+    <div class="video-text">
+      <h1>¿Como eliminar la ansiedad?</h1>
+    </div>
+  </div>
+</div>
+
+ 
+ 
+ 
